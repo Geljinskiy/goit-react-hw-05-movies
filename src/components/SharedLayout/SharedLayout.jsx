@@ -16,12 +16,12 @@ const SharedLayout = () => {
           <nav>
             <List className='list'>
               <li>
-                <NavigationLink activeClassName="selected" to="/">
+                <NavigationLink to="/">
                   Home
                 </NavigationLink>
               </li>
               <li>
-                <NavigationLink activeClassName="selected" to="/movies">
+                <NavigationLink to="/movies">
                   Movies
                 </NavigationLink>
               </li>
