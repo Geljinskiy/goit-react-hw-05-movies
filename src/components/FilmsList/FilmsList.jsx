@@ -1,9 +1,10 @@
 import FilmItem from 'components/FilmItem';
 import { List } from './FilmsList.styled';
+import PropTypes from 'prop-types';
 
 const FilmsList = ({ films }) => {
   return (
-    <List className='list'>
+    <List className="list">
       {films.map(film => {
         return (
           <li key={film.id}>
@@ -16,3 +17,7 @@ const FilmsList = ({ films }) => {
 };
 
 export default FilmsList;
+
+FilmItem.propTypes = {
+  films: PropTypes.array,
+};

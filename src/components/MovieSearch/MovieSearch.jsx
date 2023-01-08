@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Input, Button, Label } from './MovieSearch.styled';
+import PropTypes from 'prop-types';
 
 const MovieSearch = ({ onSubmit, prevQuery }) => {
   const [interimQuery, setInterimQuery] = useState(prevQuery);
@@ -29,6 +30,11 @@ const MovieSearch = ({ onSubmit, prevQuery }) => {
       </Label>
     </form>
   );
+};
+
+MovieSearch.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  prevQuery: PropTypes.string,
 };
 
 export default MovieSearch;

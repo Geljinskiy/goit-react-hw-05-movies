@@ -13,17 +13,18 @@ const Movies = () => {
   const [films, setFilms] = useState(null);
 
   useEffect(() => {
-    (async () => {
-      if (!query) {
-        return;
-      }
+    if (!query) {
+      return;
+    }
+    const fetchFilms = async () => {
       try {
         const getedFilms = await api.getMovieBySearch(query);
         setFilms(getedFilms);
       } catch (error) {
         console.log('error :', error);
       }
-    })();
+    };
+    fetchFilms();
   }, [query]);
 
   const onSubmit = query => {

@@ -9,14 +9,15 @@ const Reviews = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    try {
-      (async () => {
-        const fetchReviews = await api.getMovieReviews(id);
-        setReviews(fetchReviews.results);
-      })();
-    } catch (error) {
-      console.log('error :', error);
-    }
+    const fetchReviews = async () => {
+      try {
+        const getedReviews = await api.getMovieReviews(id);
+        setReviews(getedReviews.results);
+      } catch (error) {
+        console.log('error :', error);
+      }
+    };
+    fetchReviews();
   }, [id]);
 
   return (

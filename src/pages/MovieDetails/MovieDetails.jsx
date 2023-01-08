@@ -9,7 +9,7 @@ import BaseMovieInfo from 'components/BaseMovieInfo';
 import AdditionalMovieInfo from 'components/AdditionalMovieInfo';
 import BackLink from 'components/BackLink';
 
-const MovieDetails = ({ movieId }) => {
+const MovieDetails = () => {
   const [filmInfo, setFilmInfo] = useState(null);
 
   const { id } = useParams();
@@ -18,14 +18,15 @@ const MovieDetails = ({ movieId }) => {
   const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
-    try {
-      (async () => {
+    const fetchMovieInfo = async () => {
+      try {
         const filmInfo = await api.getMovieDetails(id);
         setFilmInfo(filmInfo);
-      })();
-    } catch (error) {
-      console.log('error :', error);
-    }
+      } catch (error) {
+        console.log('error :', error);
+      }
+    };
+    fetchMovieInfo();
   }, [id]);
 
   return (

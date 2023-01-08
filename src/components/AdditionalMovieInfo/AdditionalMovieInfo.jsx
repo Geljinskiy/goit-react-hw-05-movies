@@ -1,6 +1,6 @@
 import { InfLink, InfItem, Section, List } from './AdditionalMovieInfo.styled';
 
-const AdditionalMovieInfo = ({ movieInfo }) => {
+const AdditionalMovieInfo = () => {
   return (
     <Section>
       <h2>Additional information</h2>

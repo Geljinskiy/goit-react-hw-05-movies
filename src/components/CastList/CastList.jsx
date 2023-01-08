@@ -1,4 +1,5 @@
 import { ActorName, ActorRole, List, ImageWrapper } from './CastList.styled';
+import PropTypes from 'prop-types';
 
 const CastList = ({ actors }) => {
   return (
@@ -9,7 +10,11 @@ const CastList = ({ actors }) => {
             <ImageWrapper>
               <img
                 width="200"
-                src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500/${profile_path}`
+                    : 'https://via.placeholder.com/200x298/?text=Image+not+found'
+                }
                 alt={name}
               />
             </ImageWrapper>
@@ -23,3 +28,7 @@ const CastList = ({ actors }) => {
 };
 
 export default CastList;
+
+CastList.propTypes = {
+  actors: PropTypes.array.isRequired,
+};

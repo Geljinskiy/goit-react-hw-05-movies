@@ -1,4 +1,5 @@
-import { AuthorName, Comment } from "./Reviews.styled";
+import PropTypes from 'prop-types';
+import { AuthorName, Comment } from './Reviews.styled';
 
 const ReviewsList = ({ reviews }) => {
   return (
@@ -16,3 +17,7 @@ const ReviewsList = ({ reviews }) => {
 };
 
 export default ReviewsList;
+
+ReviewsList.propTypes = {
+  reviews: PropTypes.array,
+};

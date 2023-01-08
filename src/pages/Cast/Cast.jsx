@@ -9,18 +9,19 @@ const Cast = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    try {
-      (async () => {
-        const fetchActors = await api.getMovieActors(id);
-        setActors(fetchActors.cast);
-      })();
-    } catch (error) {
-      console.log('error :', error);
-    }
+    const fetchActors = async () => {
+      try {
+        const getActors = await api.getMovieActors(id);
+        setActors(getActors.cast);
+      } catch (error) {
+        console.log('error :', error);
+      }
+    };
+    fetchActors();
   }, [id]);
 
   return (
-    <div className='container'>
+    <div className="container">
       <CastList actors={actors} />
     </div>
   );

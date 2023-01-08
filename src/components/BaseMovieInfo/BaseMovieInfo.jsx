@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ImageWrapper,
   Section,
@@ -37,3 +38,7 @@ const BaseMovieInfo = ({ filmInfo }) => {
 };
 
 export default BaseMovieInfo;
+
+BaseMovieInfo.propTypes = {
+  filmInfo: PropTypes.object.isRequired,
+};
